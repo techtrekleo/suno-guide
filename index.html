@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>Suno 基本操作指南 — 初學者教學</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- ========== Sidebar ========== -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-mark">S</div>
+      <div class="brand-text">
+        <div class="t">Suno 基本操作</div>
+        <div class="s">FOR BEGINNERS</div>
+      </div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-label">章節</div>
+      <div id="nav-list"></div>
+    </div>
+
+    <div class="sidebar-foot">
+      預計閱讀時間 12–15 分鐘<br>
+      建議依章節順序閱讀
+    </div>
+  </aside>
+
+  <!-- ========== Main ========== -->
+  <main class="main">
+
+    <!-- 01 Intro -->
+    <section id="intro" class="section">
+      <div class="progress"><div class="progress-dots"></div><div class="progress-text"></div></div>
+      <span class="eyebrow">Chapter 01 · Getting Started</span>
+      <h1>用 Suno 寫一首歌，<br>其實沒你想的那麼難</h1>
+      <p class="lead">Suno 是一個用「文字描述」生成音樂的 AI 工具。你不需要懂樂理、不用會樂器，只要學會幾個關鍵的「下指令」方式，就能做出完整的歌曲。這份指南會帶你從零開始，重點放在 <em>Style 描述</em>、<em>歌詞結構</em>，以及最常被搞混的 <em>[ ] 與 ( )</em> 用法。</p>
+
+      <h2>你會學到</h2>
+      <div class="cat-grid">
+        <div class="cat-card">
+          <div class="cat-head"><span class="cat-title">Style 描述</span><span class="cat-en">PROMPTING</span></div>
+          <p class="small">如何用樂器、風格、情緒組合出有效的 Style prompt。</p>
+        </div>
+        <div class="cat-card">
+          <div class="cat-head"><span class="cat-title">歌詞結構</span><span class="cat-en">STRUCTURE</span></div>
+          <p class="small">主歌、副歌、橋段怎麼安排，AI 才聽得懂。</p>
+        </div>
+        <div class="cat-card">
+          <div class="cat-head"><span class="cat-title">[ ] 標籤語法</span><span class="cat-en">SECTION TAGS</span></div>
+          <p class="small">告訴 AI「這段是什麼角色」的官方語法。</p>
+        </div>
+        <div class="cat-card">
+          <div class="cat-head"><span class="cat-title">( ) 演唱註記</span><span class="cat-en">PERFORMANCE NOTES</span></div>
+          <p class="small">寫進歌詞裡的演唱指示，與 [ ] 完全不同。</p>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-icon">i</div>
+        <div class="callout-body">
+          <strong>學習建議</strong>
+          這份指南附帶可複製的 prompt 範例與互動式結構模擬器。看到範例就動手試一次，比讀十遍都有用。
+        </div>
+      </div>
+
+      <div class="section-nav">
+        <button class="btn sec-next next"><span class="l">Next</span><span class="t">02 · 基本流程 →</span></button>
+      </div>
+    </section>
+
+    <!-- 02 Workflow -->
+    <section id="workflow" class="section">
+      <div class="progress"><div class="progress-dots"></div><div class="progress-text"></div></div>
+      <span class="eyebrow">Chapter 02 · Workflow</span>
+      <h1>建立一首歌的<br>三個欄位</h1>
+      <p class="lead">當你切換到 <strong>Custom（自訂）模式</strong>，會看到三個關鍵欄位。理解它們各自負責什麼，是寫好歌的第一步。</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-title">Lyrics（歌詞）</div>
+          <div class="step-body">放入歌詞文字。可以用 <code class="mono">[Verse]</code>、<code class="mono">[Chorus]</code> 等標籤標示段落結構。本指南第 6、7 章詳細說明。</div>
+        </div>
+        <div class="step">
+          <div class="step-title">Style（風格描述）</div>
+          <div class="step-body">用英文描述你想要的音樂風格，例如「<span class="mono">acoustic ballad, soft female vocal, piano</span>」。<strong>建議 200 字內</strong>，描述越精準越好，但太長反而模糊。</div>
+        </div>
+        <div class="step">
+          <div class="step-title">Title（標題）</div>
+          <div class="step-body">作品名稱，純粹給你管理用，不會大幅影響生成結果。</div>
+        </div>
+      </div>
+
+      <h2>一個最簡單的範例</h2>
+      <p>下面是一個「最小可運作」的設定，複製過去就能跑：</p>
+
+      <div class="compare">
+        <div class="compare-col">
+          <h4>Style</h4>
+          <div class="codeblock">
+            <div class="codeblock-head">STYLE PROMPT<button class="copy-btn">複製</button></div>
+            <pre>acoustic pop ballad, soft female vocal, fingerstyle guitar, gentle piano, warm and nostalgic, 70 bpm</pre>
+          </div>
+        </div>
+        <div class="compare-col">
+          <h4>Lyrics</h4>
+          <div class="codeblock">
+            <div class="codeblock-head">LYRICS<button class="copy-btn">複製</button></div>
+<pre><span class="tok-bracket">[Verse]</span>
+街燈把影子拉長
+我獨自走過熟悉的轉角
+
+<span class="tok-bracket">[Chorus]</span>
+愛你像呼吸一樣
+不需要理由</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-good">
+        <div class="callout-icon">✓</div>
+        <div class="callout-body">
+          <strong>核心觀念</strong>
+          Style 描述「聲音聽起來怎樣」，Lyrics 描述「演唱的內容與段落」。兩者互不混用。
+        </div>
+      </div>
+
+      <div class="section-nav">
+        <button class="btn sec-prev"><span class="l">Prev</span><span class="t">← 01 · 開始之前</span></button>
+        <button class="btn sec-next next"><span class="l">Next</span><span class="t">03 · Style 欄位 →</span></button>
+      </div>
+    </section>
+
+    <!-- 03 Style -->
+    <section id="style" class="section">
+      <div class="progress"><div class="progress-dots"></div><div class="progress-text"></div></div>
+      <span class="eyebrow">Chapter 03 · Style Prompt</span>
+      <h1>Style 欄位的<br>黃金公式</h1>
+      <p class="lead">寫 Style 不用文謅謅，有效的描述通常包含這四個面向：<em>風格</em>、<em>樂器</em>、<em>人聲</em>、<em>氛圍/節奏</em>。把它們用半形逗號串起來就是一個好 prompt。</p>
+
+      <div class="card">
+        <h3 style="margin-top:0">公式</h3>
+        <div class="codeblock">
+          <div class="codeblock-head">FORMULA</div>
+<pre><span class="tok-meta">[風格 genre]</span>, <span class="tok-meta">[樂器 instruments]</span>, <span class="tok-meta">[人聲 vocal]</span>, <span class="tok-meta">[氛圍 mood]</span>, <span class="tok-meta">[節奏 bpm]</span></pre>
+        </div>
+        <h3>套用範例</h3>
+        <div class="codeblock">
+          <div class="codeblock-head">EXAMPLE<button class="copy-btn">複製</button></div>
+<pre>indie folk, acoustic guitar, light strings, soft male vocal, melancholic and warm, 80 bpm</pre>
+        </div>
+      </div>
+
+      <h2>實用建議</h2>
+      <table class="kv-table">
+        <thead><tr><th>原則</th><th>說明</th></tr></thead>
+        <tbody>
+          <tr><td>用英文</td><td>Suno 對英文 prompt 反應最準。中文也可以，但精準度較差。</td></tr>
+          <tr><td>用逗號分隔</td><td>用半形逗號分開不同關鍵字，AI 會把每個都當成一個獨立指令。</td></tr>
+          <tr><td>200 字內</td><td>過長反而會稀釋重點。精煉到 5–8 個關鍵詞最佳。</td></tr>
+          <tr><td>避免矛盾</td><td>不要同時寫「heavy metal」和「lullaby」，AI 會混亂。</td></tr>
+          <tr><td>具體 &gt; 抽象</td><td>「fingerstyle guitar」比「nice guitar」有用得多。</td></tr>
+        </tbody>
+      </table>
+
+      <h2>初學者常用詞庫</h2>
+
+      <h3>人聲 Vocal</h3>
+      <div class="pill-row">
+        <span class="pill">柔美女聲 <span class="pill-en">soft female vocal</span></span>
+        <span class="pill">磁性男聲 <span class="pill-en">deep male vocal</span></span>
+        <span class="pill">空靈女聲 <span class="pill-en">ethereal female vocal</span></span>
+        <span class="pill">沙啞男聲 <span class="pill-en">raspy male vocal</span></span>
+        <span class="pill">合聲 <span class="pill-en">harmonies / choir</span></span>
+        <span class="pill">無人聲 <span class="pill-en">instrumental</span></span>
+      </div>
+
+      <h3>氛圍 Mood</h3>
+      <div class="pill-row">
+        <span class="pill">溫暖懷舊 <span class="pill-en">warm, nostalgic</span></span>
+        <span class="pill">憂傷 <span class="pill-en">melancholic</span></span>
+        <span class="pill">夢幻 <span class="pill-en">dreamy</span></span>
+        <span class="pill">熱血 <span class="pill-en">uplifting, energetic</span></span>
+        <span class="pill">沉靜 <span class="pill-en">calm, peaceful</span></span>
+        <span class="pill">史詩 <span class="pill-en">epic, cinematic</span></span>
+      </div>
+
+      <h3>節奏 BPM 速查</h3>
+      <table class="kv-table">
+        <tbody>
+          <tr><td>60–75</td><td>抒情慢板，搖籃曲、情歌的副歌</td></tr>
+          <tr><td>80–95</td><td>抒情中板，多數 K 歌主歌速度</td></tr>
+          <tr><td>100–120</td><td>流行常用，舒服的律動感</td></tr>
+          <tr><td>120–140</td><td>熱鬧、舞曲、City Pop</td></tr>
+          <tr><td>140+</td><td>熱血搖滾、電子舞曲、嘻哈快歌</td></tr>
+        </tbody>
+      </table>
+
+      <div class="section-nav">
+        <button class="btn sec-prev"><span class="l">Prev</span><span class="t">← 02 · 基本流程</span></button>
+        <button class="btn sec-next next"><span class="l">Next</span><span class="t">04 · 常用樂器 →</span></button>
+      </div>
+    </section>
+
+    <!-- 04 Instruments -->
+    <section id="instruments" class="section">
+      <div class="progress"><div class="progress-dots"></div><div class="progress-text"></div></div>
+      <span class="eyebrow">Chapter 04 · Instruments</span>
+      <h1>常用樂器詞彙<br>分類速查</h1>
+      <p class="lead">點擊任何一個樂器把它記下來。寫 Style 時，挑 1–3 個樂器最剛好；超過 5 個 AI 通常會自己取捨。</p>
+
+      <div class="cat-grid">
+        <div class="cat-card">
+          <div class="cat-head"><span class="cat-title">弦樂類</span><span class="cat-en">STRINGS</span></div>
+          <div class="pill-row" style="margin:0">
+            <span class="pill">木吉他 <span class="pill-en">acoustic guitar</span></span>
+            <span class="pill">電吉他 <span class="pill-en">electric guitar</span></span>
+            <span class="pill">指彈 <span class="pill-en">fingerstyle guitar</span></span>
+            <span class="pill">尼龍弦 <span class="pill-en">nylon guitar</span></span>
+            <span class="pill">貝斯 <span class="pill-en">bass guitar</span></span>
+            <span class="pill">小提琴 <span class="pill-en">violin</span></span>
+            <span class="pill">大提琴 <span class="pill-en">cello</span></span>
+            <span class="pill">弦樂群 <span class="pill-en">strings</span></span>
+            <span class="pill">烏克麗麗 <span class="pill-en">ukulele</span></span>
+            <span class="pill">豎琴 <span class="pill-en">harp</span></span>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-head"><span class="cat-title">鍵盤類</span><span class="cat-en">KEYS</span></div>
+          <div class="pill-row" style="margin:0">
+            <span class="pill">鋼琴 <span class="pill-en">piano</span></span>
+            <span class="pill">電鋼琴 <span class="pill-en">electric piano / Rhodes</span></span>
+            <span class="pill">合成器 <span class="pill-en">synth</span></span>
+            <span class="pill">類比合成器 <span class="pill-en">analog synth</span></span>
+            <span class="pill">管風琴 <span class="pill-en">organ</span></span>
+            <span class="pill">大鍵琴 <span class="pill-en">harpsichord</span></span>
+            <span class="pill">音樂盒 <span class="pill-en">music box</span></span>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-head"><span class="cat-title">打擊類</span><span class="cat-en">PERCUSSION</span></div>
+          <div class="pill-row" style="margin:0">
+            <span class="pill">爵士鼓 <span class="pill-en">drums</span></span>
+            <span class="pill">節奏箱 <span class="pill-en">drum machine</span></span>
+            <span class="pill">808 鼓組 <span class="pill-en">808 drums</span></span>
+            <span class="pill">手拍 <span class="pill-en">hand claps</span></span>
+            <span class="pill">手鼓 <span class="pill-en">cajon</span></span>
+            <span class="pill">沙鈴 <span class="pill-en">shaker</span></span>
+            <span class="pill">鈴鼓 <span class="pill-en">tambourine</span></span>
+            <span class="pill">康加鼓 <span class="pill-en">congas</span></span>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-head"><span class="cat-title">電子類</span><span class="cat-en">ELECTRONIC</span></div>
+          <div class="pill-row" style="margin:0">
+            <span class="pill">合成貝斯 <span class="pill-en">synth bass</span></span>
+            <span class="pill">電子鋪底 <span class="pill-en">synth pads</span></span>
+            <span class="pill">電子琶音 <span class="pill-en">arpeggios</span></span>
+            <span class="pill">迴旋音效 <span class="pill-en">reverb fx</span></span>
+            <span class="pill">取樣 <span class="pill-en">samples</span></span>
+            <span class="pill">Lo-fi 雜訊 <span class="pill-en">vinyl noise</span></span>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-head"><span class="cat-title">管樂類</span><span class="cat-en">WIND / BRASS</span></div>
+          <div class="pill-row" style="margin:0">
+            <span class="pill">薩克斯風 <span class="pill-en">saxophone</span></span>
+            <span class="pill">小號 <span class="pill-en">trumpet</span></span>
+            <span class="pill">長笛 <span class="pill-en">flute</span></span>
+            <span class="pill">口琴 <span class="pill-en">harmonica</span></span>
+            <span class="pill">銅管組 <span class="pill-en">brass section</span></span>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-head"><span class="cat-title">特色 / 民族</span><span class="cat-en">ETHNIC</span></div>
+          <div class="pill-row" style="margin:0">
+            <span class="pill">古箏 <span class="pill-en">guzheng</span></span>
+            <span class="pill">二胡 <span class="pill-en">erhu</span></span>
+            <span class="pill">尺八 <span class="pill-en">shakuhachi</span></span>
+            <span class="pill">班卓琴 <span class="pill-en">banjo</span></span>
+            <span class="pill">手風琴 <span class="pill-en">accordion</span></span>
+            <span class="pill">曼陀林 <span class="pill-en">mandolin</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-icon">!</div>
+        <div class="callout-body">
+          <strong>樂器搭配的小提醒</strong>
+          一首歌的編制不是樂器越多越好。流行抒情通常 3–4 種就夠（鋼琴、木吉他、貝斯、鼓組），編曲反而清晰。
+        </div>
+      </div>
+
+      <div class="section-nav">
+        <button class="btn sec-prev"><span class="l">Prev</span><span class="t">← 03 · Style 欄位</span></button>
+        <button class="btn sec-next next"><span class="l">Next</span><span class="t">05 · 音樂風格 →</span></button>
+      </div>
+    </section>
+
+    <!-- 05 Genres -->
+    <section id="genres" class="section">
+      <div class="progress"><div class="progress-dots"></div><div class="progress-text"></div></div>
+      <span class="eyebrow">Chapter 05 · Genres</span>
+      <h1>10 種主流風格<br>與推薦 prompt</h1>
+      <p class="lead">每個風格卡片附上一個可直接複製的 Style 範例，是初學者最快進入狀況的方式。</p>
+
+      <div class="style-grid">
+
+        <div class="style-card">
+          <div class="num">01</div>
+          <div class="style-name">流行抒情</div>
+          <div class="style-en">Pop Ballad</div>
+          <div class="style-desc">最大眾、最安全的選擇。鋼琴或木吉他打底，副歌情緒拉開。</div>
+          <div class="style-tags">
+            <span class="style-tag">piano</span><span class="style-tag">strings</span><span class="style-tag">soft vocal</span><span class="style-tag">75 bpm</span>
+          </div>
+        </div>
+
+        <div class="style-card">
+          <div class="num">02</div>
+          <div class="style-name">獨立民謠</div>
+          <div class="style-en">Indie Folk</div>
+          <div class="style-desc">木吉他主導、樸素溫暖。適合敘事型、私密感的歌詞。</div>
+          <div class="style-tags">
+            <span class="style-tag">acoustic guitar</span><span class="style-tag">light strings</span><span class="style-tag">warm</span><span class="style-tag">85 bpm</span>
+          </div>
+        </div>
+
+        <div class="style-card">
+          <div class="num">03</div>
+          <div class="style-name">城市流行</div>
+          <div class="style-en">City Pop</div>
+          <div class="style-desc">80 年代日系律動，電鋼琴、滑順貝斯、清亮鼓點。</div>
+          <div class="style-tags">
+            <span class="style-tag">rhodes piano</span><span class="style-tag">slap bass</span><span class="style-tag">groovy</span><span class="style-tag">110 bpm</span>
+          </div>
+        </div>
+
+        <div class="style-card">
+          <div class="num">04</div>
+          <div class="style-name">節奏藍調</div>
+          <div class="style-en">R&amp;B / Soul</div>
+          <div class="style-desc">綿密人聲、柔軟律動。適合情慾、纏綿、夜晚。</div>
+          <div class="style-tags">
+            <span class="style-tag">smooth vocal</span><span class="style-tag">electric piano</span><span class="style-tag">sensual</span><span class="style-tag">90 bpm</span>
+          </div>
+        </div>
+
+        <div class="style-card">
+          <div class="num">05</div>
+          <div class="style-name">流行搖滾</div>
+          <div class="style-en">Pop Rock</div>
+          <div class="style-desc">電吉他驅動，副歌有力。適合勵志、青春、熱血題材。</div>
+          <div class="style-tags">
+            <span class="style-tag">electric guitar</span><span class="style-tag">drums</span><span class="style-tag">uplifting</span><span class="style-tag">128 bpm</span>
+          </div>
+        </div>
+
+        <div class="style-card">
+          <div class="num">06</div>
+          <div class="style-name">Lo-fi 嘻哈</div>
+          <div class="style-en">Lo-fi Hip Hop</div>
+          <div class="style-desc">慵懶、夜深、咖啡店。讀書音樂的代名詞。</div>
+          <div class="style-tags">
+            <span class="style-tag">jazzy chords</span><span class="style-tag">vinyl noise</span><span class="style-tag">chill</span><span class="style-tag">80 bpm</span>
+          </div>
+        </div>
+
+        <div class="style-card">
+          <div class="num">07</div>
+          <div class="style-name">電子舞曲</div>
+          <div class="style-en">EDM / Dance Pop</div>
+          <div class="style-desc">合成器、四四拍鼓組、副歌爆發點。派對首選。</div>
+          <div class="style-tags">
+            <span class="style-tag">synth lead</span><span class="style-tag">four-on-floor</span><span class="style-tag">energetic</span><span class="style-tag">128 bpm</span>
+          </div>
+        </div>
+
+        <div class="style-card">
+          <div class="num">08</div>
+          <div class="style-name">夢幻流行</div>
+          <div class="style-en">Dream Pop / Shoegaze</div>
+          <div class="style-desc">大量殘響、迷濛人聲、漂浮感。適合夢境、回憶。</div>
+          <div class="style-tags">
+            <span class="style-tag">reverb guitar</span><span class="style-tag">ethereal vocal</span><span class="style-tag">dreamy</span><span class="style-tag">95 bpm</span>
+          </div>
+        </div>
+
+        <div class="style-card">
+          <div class="num">09</div>
+          <div class="style-name">爵士小品</div>
+          <div class="style-en">Smooth Jazz</div>
+          <div class="style-desc">薩克斯風、走路貝斯、刷鈸。優雅的午後氛圍。</div>
+          <div class="style-tags">
+            <span class="style-tag">saxophone</span><span class="style-tag">walking bass</span><span class="style-tag">smooth</span><span class="style-tag">100 bpm</span>
+          </div>
+        </div>
+
+        <div class="style-card">
+          <div class="num">10</div>
+          <div class="style-name">國風</div>
+          <div class="style-en">Chinese Style Pop</div>
+          <div class="style-desc">古箏、笛聲、五聲音階旋律，融合現代流行編制。</div>
+          <div class="style-tags">
+            <span class="style-tag">guzheng</span><span class="style-tag">flute</span><span class="style-tag">pentatonic</span><span class="style-tag">88 bpm</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="divider"></div>
+
+      <h2>把卡片組成完整 Style</h2>
+      <p>取上方卡片中的標籤，加上 mood 與 vocal，就是一個完整 prompt：</p>
+      <div class="codeblock">
+        <div class="codeblock-head">EXAMPLE — POP BALLAD<button class="copy-btn">複製</button></div>
+<pre>pop ballad, piano, strings, soft female vocal, warm and emotional, 75 bpm</pre>
+      </div>
+      <div class="codeblock">
+        <div class="codeblock-head">EXAMPLE — CITY POP<button class="copy-btn">複製</button></div>
+<pre>city pop, rhodes piano, slap bass, smooth female vocal, groovy and nostalgic, 110 bpm</pre>
+      </div>
+
+      <div class="section-nav">
+        <button class="btn sec-prev"><span class="l">Prev</span><span class="t">← 04 · 常用樂器</span></button>
+        <button class="btn sec-next next"><span class="l">Next</span><span class="t">06 · 歌詞結構 →</span></button>
+      </div>
+    </section>
+
+    <!-- 06 Structure -->
+    <section id="structure" class="section">
+      <div class="progress"><div class="progress-dots"></div><div class="progress-text"></div></div>
+      <span class="eyebrow">Chapter 06 · Song Structure</span>
+      <h1>一首歌的<br>「骨架」是什麼</h1>
+      <p class="lead">Suno 雖然會自動安排段落，但給它清楚的結構標籤，生成的音樂會更有層次與記憶點。流行歌最常見的結構，就這幾個區塊。</p>
+
+      <h2>七種基本段落</h2>
+      <table class="kv-table">
+        <thead><tr><th>標籤</th><th>角色</th><th>建議用法</th></tr></thead>
+        <tbody>
+          <tr><td>[Intro]</td><td>前奏</td><td>建立氛圍，可純樂器，2–4 句或留空。</td></tr>
+          <tr><td>[Verse]</td><td>主歌</td><td>故事鋪陳的地方，旋律相對平穩。</td></tr>
+          <tr><td>[Pre-Chorus]</td><td>導歌</td><td>主歌與副歌之間的橋，把情緒推上去。</td></tr>
+          <tr><td>[Chorus]</td><td>副歌</td><td>歌曲記憶點。每次重複歌詞與旋律最好一致。</td></tr>
+          <tr><td>[Bridge]</td><td>橋段</td><td>整首歌的轉折，通常出現在第二副歌之後。</td></tr>
+          <tr><td>[Instrumental]</td><td>間奏</td><td>純樂器段落，常用於 solo 或氣氛切換。</td></tr>
+          <tr><td>[Outro]</td><td>尾奏</td><td>收尾，可以漸弱、可以重複關鍵句。</td></tr>
+        </tbody>
+      </table>
+
+      <h2>經典流行歌結構</h2>
+      <p>初學者直接套這個就好，幾乎適用所有流行歌：</p>
+      <div class="codeblock">
+        <div class="codeblock-head">CLASSIC POP STRUCTURE</div>
+<pre><span class="tok-bracket">[Intro]</span>
+<span class="tok-bracket">[Verse 1]</span>
+<span class="tok-bracket">[Pre-Chorus]</span>
+<span class="tok-bracket">[Chorus]</span>
+<span class="tok-bracket">[Verse 2]</span>
+<span class="tok-bracket">[Pre-Chorus]</span>
+<span class="tok-bracket">[Chorus]</span>
+<span class="tok-bracket">[Bridge]</span>
+<span class="tok-bracket">[Chorus]</span>
+<span class="tok-bracket">[Outro]</span></pre>
+      </div>
+
+      <h3>完整可複製範例</h3>
+      <div class="codeblock">
+        <div class="codeblock-head">FULL LYRICS<button class="copy-btn">複製</button></div>
+<pre><span class="tok-bracket">[Intro]</span>
+
+<span class="tok-bracket">[Verse 1]</span>
+街燈把影子拉長 我獨自走過熟悉的轉角
+那些說好的明天 像紙飛機飄遠了
+
+<span class="tok-bracket">[Pre-Chorus]</span>
+心跳越來越大聲
+一句話含在嘴裡不敢說
+
+<span class="tok-bracket">[Chorus]</span>
+愛你像呼吸一樣 不需要理由
+每一秒都是奇蹟 每一刻都剛好
+就算全世界轉身 我還在原地等候
+
+<span class="tok-bracket">[Verse 2]</span>
+咖啡涼了一半 訊息還停在昨天
+原來想你這件事 比天黑還溫柔
+
+<span class="tok-bracket">[Pre-Chorus]</span>
+心跳越來越大聲
+這次我想說出口
+
+<span class="tok-bracket">[Chorus]</span>
+愛你像呼吸一樣 不需要理由
+每一秒都是奇蹟 每一刻都剛好
+就算全世界轉身 我還在原地等候
+
+<span class="tok-bracket">[Bridge]</span>
+如果時間能倒流
+我還是會選擇你
+
+<span class="tok-bracket">[Chorus]</span>
+愛你像呼吸一樣 不需要理由
+每一秒都是奇蹟 每一刻都剛好
+
+<span class="tok-bracket">[Outro]</span>
+（漸弱）</pre>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-icon">i</div>
+        <div class="callout-body">
+          <strong>下一章</strong>
+          注意上面範例最後一行的「（漸弱）」用的是中文括號 ( )，不是 [ ]。下一章會解釋為什麼。
+        </div>
+      </div>
+
+      <div class="section-nav">
+        <button class="btn sec-prev"><span class="l">Prev</span><span class="t">← 05 · 音樂風格</span></button>
+        <button class="btn sec-next next"><span class="l">Next</span><span class="t">07 · 括號用法 →</span></button>
+      </div>
+    </section>
+
+    <!-- 07 Brackets -->
+    <section id="brackets" class="section">
+      <div class="progress"><div class="progress-dots"></div><div class="progress-text"></div></div>
+      <span class="eyebrow">Chapter 07 · Bracket Syntax</span>
+      <h1>[ ] 與 ( ) <br>看似相像，作用完全不同</h1>
+      <p class="lead">這是初學者最常搞混的地方。<em>方括號 [ ]</em> 是給 AI 看的「結構指令」，<em>圓括號 ( )</em> 是模擬真人歌詞中的「演唱註記」。一個寫錯，整首歌的味道就跑掉了。</p>
+
+      <div class="cat-grid">
+        <div class="cat-card">
+          <div class="cat-head"><span class="cat-title">[ ] 方括號</span><span class="cat-en">SECTION TAG</span></div>
+          <p class="small"><strong>用途：</strong>告訴 AI「這段是什麼角色」</p>
+          <p class="small"><strong>位置：</strong>單獨一行，段落開頭</p>
+          <p class="small"><strong>會被唱出來嗎？</strong>不會。AI 只把它當成結構指令。</p>
+        </div>
+        <div class="cat-card">
+          <div class="cat-head"><span class="cat-title">( ) 圓括號</span><span class="cat-en">PERFORMANCE NOTE</span></div>
+          <p class="small"><strong>用途：</strong>標示和聲、回應、轉音、氣音等演唱表現</p>
+          <p class="small"><strong>位置：</strong>寫在歌詞句子裡</p>
+          <p class="small"><strong>會被唱出來嗎？</strong>會。通常以較輕、較弱、或合聲方式唱出。</p>
+        </div>
+      </div>
+
+      <h2>[ ] 方括號的常見用法</h2>
+
+      <h3>1. 段落結構標籤</h3>
+      <div class="codeblock">
+        <div class="codeblock-head">SECTION TAGS</div>
+<pre><span class="tok-bracket">[Verse 1]</span>
+<span class="tok-bracket">[Pre-Chorus]</span>
+<span class="tok-bracket">[Chorus]</span>
+<span class="tok-bracket">[Bridge]</span>
+<span class="tok-bracket">[Outro]</span></pre>
+      </div>
+
+      <h3>2. 段落內加屬性（進階）</h3>
+      <p>可以在 [ ] 裡加上人聲或情緒指示，AI 會盡量遵循：</p>
+      <div class="codeblock">
+        <div class="codeblock-head">ADVANCED TAGS<button class="copy-btn">複製</button></div>
+<pre><span class="tok-bracket">[Verse 1: female vocal, soft]</span>
+<span class="tok-bracket">[Chorus: powerful, full band]</span>
+<span class="tok-bracket">[Bridge: a cappella]</span>
+<span class="tok-bracket">[Instrumental: guitar solo]</span></pre>
+      </div>
+
+      <h3>3. 純效果指令</h3>
+      <div class="codeblock">
+        <div class="codeblock-head">EFFECT TAGS</div>
+<pre><span class="tok-bracket">[Build up]</span>     <span class="tok-comment"># 醞釀、推進</span>
+<span class="tok-bracket">[Drop]</span>         <span class="tok-comment"># 副歌爆發點</span>
+<span class="tok-bracket">[Fade out]</span>     <span class="tok-comment"># 結尾漸弱</span>
+<span class="tok-bracket">[End]</span>          <span class="tok-comment"># 歌曲結束</span></pre>
+      </div>
+
+      <h2>( ) 圓括號的常見用法</h2>
+      <p>圓括號裡的字會被「唱出來」，但通常是和聲、回應、或氣音的方式。最常見的四種：</p>
+
+      <table class="kv-table">
+        <thead><tr><th>用途</th><th>範例</th><th>聽起來像</th></tr></thead>
+        <tbody>
+          <tr><td>呼應 / 和聲</td><td>我愛你 (我愛你)</td><td>主唱唱完，合聲輕聲重複</td></tr>
+          <tr><td>氣音 / 哼唱</td><td>(oooh) (ahhh) (la la la)</td><td>無歌詞的哼唱</td></tr>
+          <tr><td>背景補充詞</td><td>別走 (請別走)</td><td>背景人聲補一句</td></tr>
+          <tr><td>演唱情境註記</td><td>(whispered) (漸弱)</td><td>提示這段用氣音 / 漸弱</td></tr>
+        </tbody>
+      </table>
+
+      <div class="divider"></div>
+
+      <h2>同一段歌詞，兩種寫法的差別</h2>
+      <p>切換下方的 Tab 比較兩種寫法生成出來的「感覺」差異：</p>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="plain">無註記</button>
+        <button class="tab" data-tab="paren">加 ( ) 演唱註記</button>
+        <button class="tab" data-tab="bracket">加 [ ] 段落標籤</button>
+      </div>
+
+      <div class="tab-panel active" data-panel="plain">
+        <div class="codeblock">
+          <div class="codeblock-head">VERSION A — 純歌詞<button class="copy-btn">複製</button></div>
+<pre>愛你像呼吸一樣
+不需要理由
+每一秒都是奇蹟
+每一刻都剛好</pre>
+        </div>
+        <p class="small">AI 會自己決定段落、和聲、強弱。可能可以、也可能平淡。</p>
+      </div>
+
+      <div class="tab-panel" data-panel="paren">
+        <div class="codeblock">
+          <div class="codeblock-head">VERSION B — 加圓括號<button class="copy-btn">複製</button></div>
+<pre>愛你像呼吸一樣 (像呼吸一樣)
+不需要理由 (oh, no reason)
+每一秒都是奇蹟 (yeah)
+每一刻都剛好 (just right)</pre>
+        </div>
+        <p class="small">圓括號會被當成和聲或回應唱出來。明顯多了「合唱層次」與西式 R&amp;B 的味道。</p>
+      </div>
+
+      <div class="tab-panel" data-panel="bracket">
+        <div class="codeblock">
+          <div class="codeblock-head">VERSION C — 加方括號<button class="copy-btn">複製</button></div>
+<pre><span class="tok-bracket">[Chorus: powerful, full band]</span>
+愛你像呼吸一樣
+不需要理由
+每一秒都是奇蹟
+每一刻都剛好</pre>
+        </div>
+        <p class="small">[ ] 不會被唱出來，但會明確指引這段是「副歌、有力、全編制」，使整段更有副歌的爆發感。</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <h2>進階：兩者組合的最佳姿勢</h2>
+      <p>實務上，最強的寫法是「<strong>段落用 [ ]、句子內用 ( )</strong>」兩者一起用：</p>
+
+      <div class="codeblock">
+        <div class="codeblock-head">BEST PRACTICE — COMBINED<button class="copy-btn">複製</button></div>
+<pre><span class="tok-bracket">[Chorus: powerful, female lead with male harmony]</span>
+愛你像呼吸一樣 <span class="tok-paren">(像呼吸一樣)</span>
+不需要理由 <span class="tok-paren">(no reason at all)</span>
+每一秒都是奇蹟 <span class="tok-paren">(yeah, yeah)</span>
+每一刻都剛好 <span class="tok-paren">(oh oh oh)</span></pre>
+      </div>
+
+      <div class="callout callout-good">
+        <div class="callout-icon">✓</div>
+        <div class="callout-body">
+          <strong>記住這個原則就夠</strong>
+          [ ] 是給 AI 看的「指令」、不會被唱出來；( ) 是寫進歌詞裡的「演唱動作」、會被輕聲唱出來。
+        </div>
+      </div>
+
+      <div class="section-nav">
+        <button class="btn sec-prev"><span class="l">Prev</span><span class="t">← 06 · 歌詞結構</span></button>
+        <button class="btn sec-next next"><span class="l">Next</span><span class="t">08 · 結構模擬器 →</span></button>
+      </div>
+    </section>
+
+    <!-- 08 Builder -->
+    <section id="builder" class="section">
+      <div class="progress"><div class="progress-dots"></div><div class="progress-text"></div></div>
+      <span class="eyebrow">Chapter 08 · Interactive</span>
+      <h1>歌詞結構<br>互動模擬器</h1>
+      <p class="lead">把左邊的段落區塊拖到右邊的畫布，組合出你想要的歌曲結構。下方會即時產出可貼到 Suno Lyrics 欄位的範本（含示範歌詞）。</p>
+
+      <div class="builder">
+        <div class="builder-cols">
+          <div class="builder-col">
+            <h4>段落元件 — 拖到右邊</h4>
+            <div class="palette" id="block-palette"></div>
+          </div>
+          <div class="builder-col">
+            <h4>歌曲結構畫布 — 可上下拖曳排序</h4>
+            <div class="block-canvas" id="block-canvas"></div>
+            <div class="builder-actions">
+              <button class="btn btn-primary" id="load-preset">套用流行歌經典結構</button>
+              <button class="btn" id="clear-canvas">清空</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:18px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+            <h4 style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-muted);font-weight:600">即時產出 — 貼到 Suno Lyrics 欄位</h4>
+            <button class="btn" id="copy-output">複製全部</button>
+          </div>
+          <div class="builder-output" id="builder-output"></div>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-icon">i</div>
+        <div class="callout-body">
+          <strong>使用提示</strong>
+          先點「套用流行歌經典結構」看看一首完整流行歌長怎樣，再把區塊拖走、拖回，找出自己喜歡的順序。每次調整都會即時更新下方產出。
+        </div>
+      </div>
+
+      <div class="section-nav">
+        <button class="btn sec-prev"><span class="l">Prev</span><span class="t">← 07 · 括號用法</span></button>
+        <button class="btn sec-next next"><span class="l">Next</span><span class="t">09 · 常見錯誤 →</span></button>
+      </div>
+    </section>
+
+    <!-- 09 Mistakes -->
+    <section id="mistakes" class="section">
+      <div class="progress"><div class="progress-dots"></div><div class="progress-text"></div></div>
+      <span class="eyebrow">Chapter 09 · Common Mistakes</span>
+      <h1>初學者最常踩的<br>5 個雷</h1>
+      <p class="lead">這些錯誤的特色是：技術上不會報錯，但會讓 AI 完全會錯意，生出來的歌怪怪的卻說不出哪裡怪。</p>
+
+      <h2>錯誤 1 · 把段落標籤寫進歌詞行內</h2>
+      <div class="compare">
+        <div class="compare-col">
+          <h4 style="color:var(--bad)">❌ 錯誤</h4>
+          <div class="codeblock">
+            <div class="codeblock-head">WRONG</div>
+<pre><span class="tok-bracket">[Verse]</span> 街燈把影子拉長
+我獨自走過熟悉的轉角</pre>
+          </div>
+        </div>
+        <div class="compare-col">
+          <h4 style="color:var(--good)">✓ 正確</h4>
+          <div class="codeblock">
+            <div class="codeblock-head">RIGHT</div>
+<pre><span class="tok-bracket">[Verse]</span>
+街燈把影子拉長
+我獨自走過熟悉的轉角</pre>
+          </div>
+        </div>
+      </div>
+      <p class="small">[ ] 標籤永遠單獨一行，下一行才是歌詞。</p>
+
+      <h2>錯誤 2 · 把樂器寫進歌詞欄</h2>
+      <div class="compare">
+        <div class="compare-col">
+          <h4 style="color:var(--bad)">❌ 錯誤（寫在 Lyrics 欄）</h4>
+          <div class="codeblock">
+            <div class="codeblock-head">LYRICS FIELD</div>
+<pre>piano, soft female vocal,
+warm and nostalgic
+<span class="tok-bracket">[Verse]</span>
+街燈把影子拉長</pre>
+          </div>
+        </div>
+        <div class="compare-col">
+          <h4 style="color:var(--good)">✓ 正確（樂器寫 Style 欄）</h4>
+          <div class="codeblock">
+            <div class="codeblock-head">STYLE FIELD</div>
+<pre>piano, soft female vocal,
+warm and nostalgic, 75 bpm</pre>
+          </div>
+        </div>
+      </div>
+      <p class="small">樂器、風格、BPM 全都屬於 Style 欄；Lyrics 欄只放歌詞與 [ ] / ( ) 標籤。</p>
+
+      <h2>錯誤 3 · ( ) 與 [ ] 互相亂用</h2>
+      <div class="compare">
+        <div class="compare-col">
+          <h4 style="color:var(--bad)">❌ 錯誤</h4>
+          <div class="codeblock">
+            <div class="codeblock-head">WRONG</div>
+<pre><span class="tok-paren">(Chorus)</span>
+愛你像呼吸一樣 <span class="tok-bracket">[像呼吸一樣]</span></pre>
+          </div>
+          <p class="small" style="margin-top:6px">段落用 ( ) 不會生效；和聲用 [ ] 反而可能被當成奇怪的指令。</p>
+        </div>
+        <div class="compare-col">
+          <h4 style="color:var(--good)">✓ 正確</h4>
+          <div class="codeblock">
+            <div class="codeblock-head">RIGHT</div>
+<pre><span class="tok-bracket">[Chorus]</span>
+愛你像呼吸一樣 <span class="tok-paren">(像呼吸一樣)</span></pre>
+          </div>
+        </div>
+      </div>
+
+      <h2>錯誤 4 · Style 寫得太貪心</h2>
+      <div class="compare">
+        <div class="compare-col">
+          <h4 style="color:var(--bad)">❌ 太多互相打架的詞</h4>
+          <div class="codeblock">
+            <div class="codeblock-head">WRONG</div>
+<pre>pop, rock, jazz, lofi, edm,
+piano, guitar, drums, sax,
+violin, synth, accordion,
+happy, sad, energetic, calm</pre>
+          </div>
+        </div>
+        <div class="compare-col">
+          <h4 style="color:var(--good)">✓ 精煉到 5–8 個關鍵詞</h4>
+          <div class="codeblock">
+            <div class="codeblock-head">RIGHT</div>
+<pre>indie folk, acoustic guitar,
+light strings, soft male vocal,
+melancholic and warm, 80 bpm</pre>
+          </div>
+        </div>
+      </div>
+
+      <h2>錯誤 5 · 全形標點符號</h2>
+      <div class="compare">
+        <div class="compare-col">
+          <h4 style="color:var(--bad)">❌ 用了中文方括號</h4>
+          <div class="codeblock">
+            <div class="codeblock-head">WRONG</div>
+<pre>【Verse】
+街燈把影子拉長</pre>
+          </div>
+        </div>
+        <div class="compare-col">
+          <h4 style="color:var(--good)">✓ 一定要用半形 [ ]</h4>
+          <div class="codeblock">
+            <div class="codeblock-head">RIGHT</div>
+<pre>[Verse]
+街燈把影子拉長</pre>
+          </div>
+        </div>
+      </div>
+      <p class="small">Suno 只認得半形 <code class="mono">[</code> <code class="mono">]</code> <code class="mono">(</code> <code class="mono">)</code>。輸入時注意把輸入法切到英文模式。</p>
+
+      <div class="section-nav">
+        <button class="btn sec-prev"><span class="l">Prev</span><span class="t">← 08 · 結構模擬器</span></button>
+        <button class="btn sec-next next"><span class="l">Next</span><span class="t">10 · 快速速查 →</span></button>
+      </div>
+    </section>
+
+    <!-- 10 Cheatsheet -->
+    <section id="cheatsheet" class="section">
+      <div class="progress"><div class="progress-dots"></div><div class="progress-text"></div></div>
+      <span class="eyebrow">Chapter 10 · Cheatsheet</span>
+      <h1>一頁速查<br>隨時回來看</h1>
+      <p class="lead">把這頁加到書籤。寫歌寫到一半忘了什麼，回來瞄一眼就好。</p>
+
+      <h2>三欄分工</h2>
+      <table class="kv-table">
+        <thead><tr><th>欄位</th><th>放什麼</th><th>絕對不要放</th></tr></thead>
+        <tbody>
+          <tr><td>Style</td><td>風格、樂器、人聲、氛圍、BPM</td><td>歌詞、段落標籤</td></tr>
+          <tr><td>Lyrics</td><td>歌詞、[ ]、( )</td><td>樂器名、風格名</td></tr>
+          <tr><td>Title</td><td>作品名稱（任意）</td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Style 黃金公式</h2>
+      <div class="codeblock">
+        <div class="codeblock-head">FORMULA<button class="copy-btn">複製</button></div>
+<pre>genre, instruments, vocal, mood, bpm</pre>
+      </div>
+
+      <h2>[ ] vs ( ) 一句話結論</h2>
+      <div class="cat-grid">
+        <div class="cat-card" style="border-left:3px solid var(--accent)">
+          <div class="cat-head"><span class="cat-title">[ ] 方括號</span><span class="cat-en">不會被唱</span></div>
+          <p class="small">給 AI 的結構指令。單獨一行，標示段落角色。</p>
+          <p class="mono small" style="color:var(--accent-deep);margin-top:6px">[Verse] [Chorus] [Bridge] [Outro]</p>
+        </div>
+        <div class="cat-card" style="border-left:3px solid var(--good)">
+          <div class="cat-head"><span class="cat-title">( ) 圓括號</span><span class="cat-en">會被輕唱</span></div>
+          <p class="small">寫進歌詞行內。模擬和聲、回應、氣音、註記。</p>
+          <p class="mono small" style="color:var(--accent-deep);margin-top:6px">我愛你 (我愛你) / (oooh) / (whispered)</p>
+        </div>
+      </div>
+
+      <h2>七個段落速記</h2>
+      <table class="kv-table">
+        <tbody>
+          <tr><td>[Intro]</td><td>前奏，建氛圍</td></tr>
+          <tr><td>[Verse]</td><td>主歌，講故事</td></tr>
+          <tr><td>[Pre-Chorus]</td><td>導歌，推情緒</td></tr>
+          <tr><td>[Chorus]</td><td>副歌，記憶點</td></tr>
+          <tr><td>[Bridge]</td><td>橋段，做轉折</td></tr>
+          <tr><td>[Instrumental]</td><td>間奏，純樂器</td></tr>
+          <tr><td>[Outro]</td><td>尾奏，做收尾</td></tr>
+        </tbody>
+      </table>
+
+      <h2>新手 30 秒模板</h2>
+      <p>什麼都不知道時，把下面兩段直接貼進 Suno，先做出第一首歌，再慢慢調整：</p>
+      <div class="compare">
+        <div class="compare-col">
+          <h4>STYLE</h4>
+          <div class="codeblock">
+            <div class="codeblock-head">PASTE INTO STYLE<button class="copy-btn">複製</button></div>
+<pre>pop ballad, piano, light strings, soft female vocal, warm and emotional, 75 bpm</pre>
+          </div>
+        </div>
+        <div class="compare-col">
+          <h4>LYRICS</h4>
+          <div class="codeblock">
+            <div class="codeblock-head">PASTE INTO LYRICS<button class="copy-btn">複製</button></div>
+<pre><span class="tok-bracket">[Intro]</span>
+
+<span class="tok-bracket">[Verse 1]</span>
+（你的主歌歌詞）
+
+<span class="tok-bracket">[Pre-Chorus]</span>
+（你的導歌歌詞）
+
+<span class="tok-bracket">[Chorus]</span>
+（你的副歌歌詞）
+
+<span class="tok-bracket">[Verse 2]</span>
+（第二段主歌）
+
+<span class="tok-bracket">[Chorus]</span>
+（重複副歌）
+
+<span class="tok-bracket">[Bridge]</span>
+（轉折段）
+
+<span class="tok-bracket">[Chorus]</span>
+（最後副歌）
+
+<span class="tok-bracket">[Outro]</span></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-good">
+        <div class="callout-icon">★</div>
+        <div class="callout-body">
+          <strong>恭喜，你完成了基礎課程</strong>
+          下一步：開一個 Suno 帳號，把上面的模板貼進去，按生成。第一首做完後，回到 03、05、07 章，每次調一個變數（樂器、風格、括號用法），快速比較差異——這是進步最快的方法。
+        </div>
+      </div>
+
+      <div class="section-nav">
+        <button class="btn sec-prev"><span class="l">Prev</span><span class="t">← 09 · 常見錯誤</span></button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
